@@ -1,0 +1,33 @@
+.plus{
+    background-color: rgba(16, 112, 150, 0.767);
+    color:white;
+    width: 50px;
+    padding: 10px;
+    margin-right: 30px;
+}
+
+.minus{
+    background-color: red;
+    color:white;
+    width: 50px;
+    padding: 10px;
+}
+.containerTrip{
+    width:90%;
+    margin-left: 50px;
+    margin-right: 560px;
+    border-radius: 10px;
+    padding:10px;
+}
+.card{
+    z-index:1;
+}
+h5{
+    font-size: 15px;
+}
+@media (min-width: 950px) and (max-width: 1300px){
+    .tripPhoto{
+        width: 220px;
+        height: 220px;
+    }
+}
