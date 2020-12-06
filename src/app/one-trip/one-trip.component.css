@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+*{
+    font-family: 'Abel', sans-serif;
+    opacity: 1;
+}
+html {
+    height: 100%;
+  }
+  body {
+    margin:0;
+    padding:0;
+    font-family: sans-serif;
+    background: linear-gradient(#141e30, #243b55);
+  }
+  
+  .jumbotron {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height: 600px;
+    padding: 40px;
+    transform: translate(-50%, -50%);
+    background: rgba(23, 128, 134, 0.815);
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    border-radius: 10px;
+  }
+  
+  .jumbotron .form-group{
+    position: relative;
+    margin-top: 30px;
+  }
+  
+  .jumbotron .form-group input {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  .jumbotron .form-group label {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;
+    pointer-events: none;
+    transition: .5s;
+    top: -20px;
+    font-size: 15px;
+    color: rgb(20, 20, 20);
+  }
+
+  .jumbotron .form-group label {
+    top:-20px;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #fff;    
+    position: absolute;
+    pointer-events: none;
+    transition: .5s;
+  }
+    
+  .jumbotron .form-group input:focus ~ label {
+    top: -20px;
+    font-size: 15px;
+    color: rgb(20, 20, 20);
+  }  
+ .form-control:focus{
+     box-shadow: none;
+ }
+
+ .btn{
+     background-color: white;
+     font-size: 18px;
+ }
+ .btn:hover{
+     background-color: rgb(71, 68, 68);
+     transition: 0.7s;
+     color: white;
+ }
