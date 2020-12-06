@@ -1,0 +1,52 @@
+
+<div id="panel">
+    <h2>Filter by</h2>
+    <br>
+    <h4>Country:</h4>
+    <select [(ngModel)] = "country" class="form-control">
+      <option></option>
+      <option *ngFor="let trip of tripList | countryList ">
+        {{trip}}</option>
+    </select>    <br>
+    <h4>Minimal price: </h4>{{minPrice.value}}
+    <mat-slider thumbLabel min='{{cheapestPrice}}' max="{{expensivePrice}}" #minPrice ></mat-slider>
+  <br>
+    <h4>Maximal price:</h4>
+    <mat-slider thumbLabel value="{{expensivePrice}}" min='{{minPrice.value}}' max="{{expensivePrice}}" #maxPrice ></mat-slider>
+
+  <br>
+    <h4>Trip starts after:</h4>
+    <mat-form-field>
+        <input matInput [matDatepicker]="from" autocomplete="off" (dateInput)="getDateFrom($event)" (dateChange)="getDateFrom($event)">
+        <mat-datepicker-toggle matSuffix [for]="from"></mat-datepicker-toggle>
+        <mat-datepicker #from color="primary"></mat-datepicker>
+    </mat-form-field> 
+    <br>
+    <h4>Trip ends before:</h4>
+    <mat-form-field>
+        <input matInput [matDatepicker]="to" autocomplete="off" (dateInput)="getDateTo($event)" (dateChange)="getDateTo($event)">
+        <mat-datepicker-toggle matSuffix [for]="to"></mat-datepicker-toggle>
+        <mat-datepicker #to color="primary"></mat-datepicker>
+    </mat-form-field> 
+    <br>
+    <h4>Rating:</h4>
+    From:<mat-slider thumbLabel value="0" min='0' max="5" #starFrom ></mat-slider><br>
+    To:<mat-slider thumbLabel value="5" min='{{starFrom.value}}' max="5" #starTo ></mat-slider><br>
+    <button class="btn" (click)="toggleChild()" >Add trip</button>
+    <div><br>
+    <app-one-trip [maxID]="maxID" (newTrip)="onSubmit($event)" [showMePartially]="showVar"></app-one-trip>
+    </div><br>
+    <app-cart [trips] = "tripsInCart" (tripAdd)="onBook($event)" (tripRemove)="onResign($event)"></app-cart>
+
+</div>
+
+<div *ngFor="let trip of tripList |  countryFilter: country | minPriceFilter: minPrice.value | maxPriceFilter: maxPrice.value | startFilter: fromDate | endFilter: toDate | starFrom: starFrom.value | starTo: starTo.value">
+    <app-trip 
+        [trip]="trip"
+        [colorBG] = "trip.id == cheapestID ? 'rgba(240, 53, 53, 0.534)' : (trip.id == mExpensiveID ? 'rgba(17, 243, 9, 0.322)' : 'white')"
+        (deleteButton)="onDelete($event)"
+        (bookButton)="onBook($event)"
+        (resignButton)="onResign($event)"
+        >
+    </app-trip>
+</div>

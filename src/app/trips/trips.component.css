@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+*{
+    font-family: 'Abel', sans-serif;
+    opacity: 1;
+}
+#countryFilter{
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px white;
+}
+.btn{
+    z-index: 1;
+    top: 800px;
+    right:40px;
+    background-color: teal;
+    color: white;
+    font-size: 24px;
+    height: 60px;
+    border: solid 2px white;
+}
+.btn:hover{
+    background-color: white;
+    color: teal;
+}
+#panel {
+
+    overflow-y: scroll;
+    z-index: 100;
+    position: fixed;
+    background: teal;
+    padding:20px;
+    color: #fff;
+    height: 100%;
+    width: 350px;
+    right: 0px;
+    
+  }
+  #panel:hover {
+    right: 0px;
+  }
+  #panel:valid {
+    right: 0px;
+  }
+
+  mat-slider {
+    width: 300px;
+    color: white;
+  }
