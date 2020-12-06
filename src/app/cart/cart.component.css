@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+*{
+    font-family: 'Abel', sans-serif;
+    opacity: 1;
+}
+.btn{
+    color:white;
+    border: 1.5px white solid;
+
+}
+.btn:hover{
+    background-color: white;
+    color:teal;
+}

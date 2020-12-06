@@ -1,0 +1,11 @@
+<h1>Shopping Cart:
+
+  {{sumNum()}} products
+</h1>
+<button class="btn" (click) ="showCart()">show products</button>
+<div *ngIf="showMePartially">
+  <app-trip-in-cart *ngFor="let trip of trips" [trip]="trip"
+  (RemoveTrip)="removeFromCart($event)"
+  (AddTrip)="bookPlace($event)"
+   ></app-trip-in-cart>
+  </div>
