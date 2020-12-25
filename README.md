@@ -3,8 +3,15 @@
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 
 
-![alt text](https://github.com/zbrze/Trips-selling-web-app/blob/main/trips_screen.png?raw=true)
+![alt text](https://github.com/zbrze/Trips-selling-web-app/blob/main/photos/trips_screen.png?raw=true)
 
+
+![alt text](https://github.com/zbrze/Trips-selling-web-app/blob/main/photos/trips_add.png?raw=true)
+
+![alt text](https://github.com/zbrze/Trips-selling-web-app/blob/main/photos/trips_cart.png?raw=true)
+
+## Real time database
+Using Cloud Firestore
 
 ## Development server
 
