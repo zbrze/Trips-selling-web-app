@@ -10,7 +10,7 @@ export class EndFilterPipe implements PipeTransform {
   transform(trips: Trip[], end: Date): Trip[] {
     if(!end) return trips;
     return trips.filter(a => {
-      return a.dateTo <= end;
+      return a.dateTo.toDate() <= end;
     })
   }
 

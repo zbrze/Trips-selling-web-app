@@ -9,7 +9,7 @@ export class StartFilterPipe implements PipeTransform {
   transform(trips: Trip[], start: Date): Trip[] {
     if(!start) return trips;
     return trips.filter(a => {
-      return a.dateFrom >= start;
+      return a.dateFrom.toDate() >= start;
     })
   }
 
