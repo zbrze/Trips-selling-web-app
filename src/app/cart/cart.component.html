@@ -1,11 +1,9 @@
-<h1>Shopping Cart:
-
-  {{sumNum()}} products
-</h1>
-<button class="btn" (click) ="showCart()">show products</button>
-<div *ngIf="showMePartially">
+<div class="container-fluid" >
+<h1 >Shopping Cart: {{this.count}} trips</h1>
+<div class="row">
   <app-trip-in-cart *ngFor="let trip of trips" [trip]="trip"
   (RemoveTrip)="removeFromCart($event)"
   (AddTrip)="bookPlace($event)"
    ></app-trip-in-cart>
   </div>
+</div>
