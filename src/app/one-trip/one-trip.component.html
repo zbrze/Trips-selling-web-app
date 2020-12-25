@@ -1,7 +1,6 @@
 
-<div *ngIf="showMePartially">
-    <div class="jumbotron jumbotron-fluid" style="z-index: 1;">
-    <h1 class="display-4">Add new tour</h1>
+<div class="jumbotron jumbotron-fluid">
+    <h2 style="font-size: 37px; font-family: 'Bungee Shade', cursive;">Add new tour</h2>
     <br>
   <form [formGroup]="tripForm" (ngSubmit)="onSubmit(tripForm.value)">
     <div class="row register-form">
@@ -17,23 +16,25 @@
                 <input  id="name" type="text" formControlName="country" class="form-control" >
                 <label for="country" >
                     Country 
-            </label>
+                </label>
+            </div>
+            <div class="row">
+            <div class="form-group" style="margin-right:8vw;">
+                <mat-form-field class="form-group" >
+                    <input id="from" matInput [matDatepicker]="from"  autocomplete="off" (dateInput)="getDateFrom($event)" (dateChange)="getDateFrom($event)">
+                    <mat-datepicker-toggle matSuffix [for]="from" style="font-size:40px;"></mat-datepicker-toggle>
+                    <mat-datepicker #from color="primary"  ></mat-datepicker>
+                </mat-form-field> 
             </div>
 
             <div class="form-group">
-                <input id="from" type="text" formControlName="from" class="form-control" >
-                <label for="from">
-                    Start Date (dd/mm/yyyy)
-                </label>
-            </div>
-
-            <div class="form-group">
-                <input id="to" type="text" formControlName="to" class="form-control" >
-                <label for="to">
-                    End Date (dd/mm/yyyy)
-                </label>
-            </div>
-        </div>
+                <mat-form-field class="form-group">
+                    <input id="to" matInput [matDatepicker]="to" autocomplete="off" (dateInput)="getDateTo($event)" (dateChange)="getDateTo($event)">
+                    <mat-datepicker-toggle matSuffix [for]="to" style="font-size:40px"></mat-datepicker-toggle>
+                    <mat-datepicker #to color="primary"></mat-datepicker>
+                </mat-form-field> 
+            </div></div>
+     </div>
         <div class="col-md-6">
             <div class="form-group">
             <input  id="price" type="text" formControlName="price" class="form-control" >
@@ -56,17 +57,17 @@
                 </label>
             </div>
             <div class="form-group">
-                <input id="URL" type="text" formControlName="URL" class="form-control" >
-                <label for="URL">
+                <input id="photoURL" type="text" formControlName="photoURL" class="form-control" >
+                <label for="photoURL">
                     Photo URL
                 </label>
             </div>
         </div>
-            </div>
+    </div>
             <br><br><br>
         <button type="submit" class="btn btn-block ">Submit</button>
 
 
 
   </form>
-</div></div>
+</div>
