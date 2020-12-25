@@ -1,7 +1,7 @@
 <div class="container-fluid" >
 <div class="col-md-12 col-sm-8">
 <div class="row ">
-  <div class="col-lg-3 col-md-8 col-sm-9 mb-3">
+  <div class="col-lg-3 col-md-12 col-sm-9 mb-3">
     <div class="card" style="background-color: transparent; border: none">
         <div class="card-body" style="background-color: transparent;">
         <div class="d-flex flex-column align-items-center text-center">
@@ -20,7 +20,7 @@
         </div>
     </div>
   </div>
-<div class="col-lx-4 col-lg-5 col-md-7 col-sm-10">
+<div class="col-lx-3 col-lg-5 col-md-12 col-sm-12">
     <div class="card mb-3"  style="background-color: transparent; border: solid 2px;" [ngStyle] = "{'border-color' : colorBG}">
       <div class="card-body" >
         <div class="row">
@@ -35,7 +35,7 @@
             <h5 class="mb-0">Country:</h5>
           </div>
           <div class="col-sm-9 text-secondary">
-            {{trip.country | uppercase}}
+           {{trip.country | uppercase}}
           </div>
         </div>
         <hr>
@@ -43,11 +43,11 @@
           <div class="col-sm-12">
             <h5 class="mb-0">Date:</h5><br>
           </div>
-          <div class="col-sm-6 text-secondary">
-            Start: {{trip.dateFrom | date:'shortDate'}}
+          <div *ngIf="trip.dateFrom" class="col-sm-6 text-secondary">
+            Start: {{trip.dateFrom.toDate()| date:'shortDate'}}
           </div>
-          <div class="col-sm-6 text-secondary">
-            End: {{trip.dateTo | date:'shortDate'}}
+          <div *ngIf="trip.dateTo" class="col-sm-6 text-secondary">
+            End: {{trip.dateTo.toDate() | date:'shortDate'}}
           </div>
             
         </div>
@@ -88,33 +88,38 @@
                 <h5 class="mb-0">Rating</h5>
               </div>
               <div class="col-sm-9 text-secondary">
-                <h6 style="color:rgb(53, 185, 97); font-weight: bold;">{{trip.rating | number : '1.2-2'}} </h6> number of votes: {{trip.votes}}
+                <h6 style="color:rgb(53, 185, 97);font-size: 20px;">{{trip.rating | number : '1.2-2'}} </h6> number of votes: {{trip.votes}}
               </div>
             </div>
       </div>
     </div>
     </div>
-    <div class="col-xl-2 col-lg-7 col-md-7 col-sm-9 mb-3">
+
+    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 mb-3">
         <div class="card">
           <div class="card-body">
-            <div class="col-sm-10">
-                <h4 class="mb-0">Description:</h4>
-              </div>
+            <div id="description" class="col-lg-10 col-md-12 col-sm-12">
+                <h5 class="mb-0 " >Description:</h5>
+                <div class="col-sm-12 text-secondary"  >
+
               {{trip.description}}
+              </div>
+            </div>
             </div>
           </div>
           <br>
           <div class="card">
             <div class="card-body">
-              <div class="mb-0">
-                <h4>Book me!</h4>
+              <div class="col-lg-10 col-md-5 col-sm-5 mb-0">
+                <h5>Book me!</h5>
                    <button (click)="bookTrip()" *ngIf="trip.places > trip.booked" class="button btn plus">+</button>
                    <button (click)="resign()" *ngIf="trip.booked != 0" class="btn minus" width="40">-</button>
               </div>
               <hr>
               <div class="mb-0">
-                <h4>Rate me!</h4>
-                <ngb-rating height="50px" [max] = '5' [(rate)]=currentRate (rateChange)="onRate(currentRate)"></ngb-rating>
+                <h5>Rate me!</h5>
+                <ngb-rating   [max] = '5' [(rate)]=currentRate (rateChange)="onRate(currentRate)">
+                </ngb-rating>
               </div>
             </div>
             </div>

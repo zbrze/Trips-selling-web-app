@@ -3,44 +3,54 @@ import {Trip} from '../trip';
 import { CommonModule } from '@angular/common';
 import {RatingModule} from 'ng-starrating';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
+
 import { StarRatingComponent } from 'ng-starrating';
+import { AddTripService } from '../services/trip.service';
 @Component({
   selector: 'app-trip',
   templateUrl: './trip.component.html',
   styleUrls: ['./trip.component.css']
 })
 export class TripComponent {
-  @Input() trip: Trip;
+  @Input() trip: any;
   @Input() colorBG: string;
-  @Output() deleteButton = new EventEmitter<Number>();
-  @Output() bookButton = new EventEmitter<Number>();
-  @Output() resignButton = new EventEmitter<Number>();
   currentRate = 0
 
-  constructor() { }
+  constructor(
+    private service:AddTripService
+    ) {  }
 
   ngOnInit(): void {
   }
 
-  deleteTrip(){
-    console.log(this.trip.id);
-    this.deleteButton.emit(this.trip.id);
-  }
 
   bookTrip(){
-    console.log(this.trip.id);
-    this.bookButton.emit(this.trip.id);
+    console.log("booking trip: ",this.trip.id,  this.trip.dateFrom.toDate());
+    this.service.book(this.trip.id);
   }
 
   resign(){
-    console.log(this.trip.id);
-    this.resignButton.emit(this.trip.id);
+    if(this.trip.inCart > 0){
+    console.log("resign from: ",this.trip.id);
+    this.service.resign(this.trip.id);
+    }else{
+      alert("You have not booked this trip therefore you cannot resign");
+    }
 
   }
 
   onRate(newRate: number) {
-    this.trip.rating=(this.trip.rating * this.trip.votes + newRate)/(this.trip.votes+1);
-    this.trip.votes +=1;
+    let currentRating = (newRate + this.trip.rating * this.trip.votes)/(this.trip.votes + 1)
+    this.service.rate(this.trip.id, currentRating);
+  }
+
+  deleteTrip(){
+    console.log("deleting trip: ", this.trip.id);
+    this.service.delete(this.trip.id);
   }
 
 }
