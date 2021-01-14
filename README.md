@@ -1,5 +1,5 @@
 # Trips
-
+Trip shop made with Angular
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 Node modules not included
 backend database, authentication and authorization with google firebase
