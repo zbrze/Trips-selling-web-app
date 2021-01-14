@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;1,300&display=swap');
+#countryFilter{
+    background-color: transparent;
+    border: none;
+    border-bottom: solid 1px white;
+}
+.btn{
+    z-index: 1;
+    top: 800px;
+    right:40px;
+    background-color: teal;
+    color: white;
+    font-size: 24px;
+    height: 60px;
+    border: solid 2px white;
+}
+.btn:hover{
+    background-color: white;
+    color: teal;
+}
+#panel {
+    
+    overflow-y: scroll;
+    z-index: 100;
+    position: fixed;
+    background: rgb(1,14,15);
+    background: linear-gradient(347deg, rgba(1,14,15,1) 2%, rgba(12,52,68,1) 36%, rgba(9,124,122,1) 67%, rgba(10,167,164,1) 87%, rgba(170,227,226,1) 99%);
+    
+    padding:20px;
+    padding-left: 35px;
+    color: #fff;
+    height: 100%;
+    width: 400px;
+    right: 0px;
+    border-top-left-radius: 20px;
+    font-family: 'Nunito', sans-serif;
+    
+  }
+
+  mat-slider {
+    width: 300px;
+    color: white;
+  }
+  .filter{
+    width:300px;
+    padding-top: 40px;
+  }
+
+  @media only screen and (max-width:990px){
+    #panel{
+      bottom: 0px;
+      width: 100%;
+      height: 20vh;
+      padding-left: 2%;
+      border-top-right-radius: 20px;
+    }
+    mat-slider{
+      width: 200px;
+    }
+    .filter{
+      width:24%;
+      height:200px;
+      margin-right: 1%;
+    }
+  }
+  @media only screen and (max-width:1200px){
+    .filter{
+      width: 36%;
+      margin-left: 10%;
+    }
+  }

@@ -1,0 +1,56 @@
+<div *ngIf="trip.places - trip.booked > 1 || auth.canSeeBooked(user)" class="container-fluid"  >
+  <div class="col-lg-12 col-md-12 col-sm-8">
+    <div class="row ">
+      <div class="col-lg-3 col-md-12 col-sm-9 mb-3">
+        <div class="card" style="background-color: transparent; border: none">
+          <div class="card-body" style="background-color: transparent;">
+            <div class="d-flex flex-column align-items-center text-center">
+                <img class="tripPhoto" src="{{trip.photoURL}}" style="clip-path: circle(50% at 50% 50%); " width="350" height="350">
+            </div>
+          </div>
+        </div>
+          <br>
+        </div>
+
+      <div class="col-lx-4 col-lg-5 col-md-12 col-sm-12" style="margin-top:3%;">
+        <div class="card mb-3"  style="background-color: transparent; border: solid 2px;" [ngStyle] = "{'border-color' : colorBG}">
+          <div class="card-body" >
+            <div class="row">
+              <div class="col-lg-10 col-md-5 col-sm-5 mb-0" style="padding-top:20px">
+                <h1 >{{trip.name | uppercase}}</h1>
+              </div>
+              
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <h5 class="mb-0">Country:</h5>
+              </div>
+              <div class="col-sm-9 text-secondary">
+              {{trip.country | uppercase}} 
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-9 col-md-5 col-sm-5 mb-0">
+                <h5>Book me!</h5>
+                  <button (click)="bookTrip()" *ngIf="trip.places > trip.booked" class="button btn plus">+</button>
+                  <button (click)="resign()" *ngIf="trip.booked != 0" class="btn minus" width="40">-</button>
+                </div>
+                
+                  <div class="col-lg-3 col-md-5 col-sm-5 mb-0">
+                    <h5 style="text-align:left">More info:</h5>
+                    <button [routerLink]="['/details', this.trip.id]" class="highlight-button btn btn-large button xs-margin-bottom-five detailsBtn" role="button" routerLinkActive="active">
+                      Details
+                      <img src="https://icon-library.com/images/icon-detail/icon-detail-1.jpg" width="20" style="margin-left: 5px;" >
+                    </button>
+
+              </div>
+                
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br>
