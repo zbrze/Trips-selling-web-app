@@ -1,0 +1,8 @@
+<nav>
+    <button routerLink="home" class="btn " role="button" routerLinkActive="active">Home</button>
+    <button routerLink="trips" class="btn " role="button" routerLinkActive="active">Trips</button>
+   <button *ngIf="user" [routerLink]="['cart', this.user.uid]" class="btn " role="button" routerLinkActive="active">Cart</button>
+    <button *ngIf="auth.canEdit(user)" [routerLink]="['admin', this.user.uid]" class="btn " role="button" routerLinkActive="active">Admin</button>
+    <app-user></app-user>
+  </nav>
+<router-outlet></router-outlet>
