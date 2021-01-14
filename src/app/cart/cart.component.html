@@ -1,0 +1,9 @@
+<div class="container-fluid" >
+<h1 >Shopping Cart: {{this.trips.length}}</h1>
+<div class="row">
+  <app-trip-in-cart *ngFor="let trip of trips" [tripID]="trip" [count]="count[trip]" [userID] = "idRoute"
+  (RemoveTrip)="removeFromCart($event)"
+  (AddTrip)="bookPlace($event)"
+   ></app-trip-in-cart>
+  </div>
+</div>

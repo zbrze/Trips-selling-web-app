@@ -1,0 +1,53 @@
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="card">
+                    <h2>Welcome to the editor's page</h2>
+                    <h5>{{this.user.uid}}</h5>
+                </div>
+            </div>
+            <div *ngIf="this.auth.canDelete(this.user)" class="col-sm-6">
+                <div class="card">
+                    <label><h4>Choose persistence:</h4></label>
+                    <mat-radio-group class="example-radio-group">
+                        <mat-radio-button class="example-radio-button" *ngFor="let type of persistenceTypes" [value]="type"
+                            (change)="radioChange($event,type)">
+                            {{type}}</mat-radio-button>
+                    </mat-radio-group>
+                </div>
+            </div>
+            <div class="col-sm-6"></div>
+        </div>
+        <div *ngIf="this.auth.canDelete(this.user)"  class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                <div *ngFor="let u of userList"> 
+                    <div>
+                        <h5>{{u.uid}}</h5><h6>{{u.email}}</h6>
+                        <ul>
+                            <li><b>reader:</b> {{u.role.reader}}<button class="btn" (click)="changeRole('reader', u.uid, !u.role.reader)">zmień</button></li>
+                            <li><b>vip:</b> {{u.role.vip}}<button class="btn" (click)="changeRole('vip', u.uid, !u.role.vip)">zmień</button></li>
+                            <li><b>editor:</b> {{u.role.editor}}<button class="btn"  (click)="changeRole('editor', u.uid, !u.role.editor)">zmień</button></li>
+                            <li><b>admin:</b> {{u.role.admin}}<button class="btn"  (click)="changeRole('admin', u.uid, !u.role.admin)">zmień</button></li>
+                        </ul>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                <app-one-trip></app-one-trip>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <app-trips-edit [user]="this.user"></app-trips-edit>
+            </div>
+        </div>
+    </div>
+</body>
