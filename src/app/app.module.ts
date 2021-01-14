@@ -2,10 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TripsComponent } from './trips/trips.component';
-import { OneTripComponent } from './one-trip/one-trip.component';
+import { TripsComponent } from './tripsInfo/trips/trips.component';
+import { OneTripComponent } from './tripEditor/one-trip/one-trip.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { TripComponent } from './trip/trip.component';
+import { TripComponent } from './tripsInfo/trip/trip.component';
 import { RatingModule } from 'ng-starrating';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CountryFilterPipe } from './filters/country-filter.pipe';
@@ -23,8 +23,22 @@ import {MatSelectModule} from '@angular/material/select';
 import { StarFromPipe } from './filters/star-from.pipe';
 import { StarToPipe } from './filters/star-to.pipe';
 import { CountryListPipe } from './filters/country-list.pipe';
-import { TripInCartComponent } from './trip-in-cart/trip-in-cart.component';
-import {CartComponent} from './cart/cart.component'
+import { TripInCartComponent } from './tripsInfo/trip-in-cart/trip-in-cart.component';
+import {CartComponent} from './cart/cart.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule} from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { HomeComponent } from './home/home.component';
+import { RouterModule } from '@angular/router';
+import { TripDetailsComponent } from './tripsInfo/trip-details/trip-details.component';
+import { UserComponent } from './user/user.component';
+import { AngularFireAuthModule } from "@angular/fire/auth";
+import { SignInComponent } from './sign-in/sign-in.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { AdminComponent } from './admin/admin.component';
+import {MatRadioModule} from '@angular/material/radio';
+import { TripsEditComponent } from './tripEditor/trips-edit/trips-edit.component';
+import { TripEditComponent } from './tripEditor/trip-edit/trip-edit.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +54,15 @@ import {CartComponent} from './cart/cart.component'
     StarToPipe,
     CountryListPipe,
     TripInCartComponent,
-    CartComponent
+    CartComponent,
+    HomeComponent,
+    TripDetailsComponent,
+    UserComponent,
+    SignInComponent,
+    SignUpComponent,
+    AdminComponent,
+    TripsEditComponent,
+    TripEditComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +77,13 @@ import {CartComponent} from './cart/cart.component'
     MatFormFieldModule,
     MatInputModule,
     MatNativeDateModule,
-    MatSelectModule
+    MatSelectModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig ),
+    AngularFirestoreModule,
+    RouterModule,
+    AngularFireAuthModule,
+    ReactiveFormsModule,
+    MatRadioModule
   ],
   providers: [],
   bootstrap: [AppComponent]
