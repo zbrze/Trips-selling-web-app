@@ -2,6 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
 Node modules not included
+backend database, authentication and authorization with google firebase
 
 ![alt text](https://github.com/zbrze/Trips-selling-web-app/blob/main/photos/trips_screen.png?raw=true)
 
