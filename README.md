@@ -11,6 +11,7 @@ backend database, authentication and authorization with google firebase
 
 ![alt text](https://github.com/zbrze/Trips-selling-web-app/blob/main/photos/trips_cart.png?raw=true)
 
+![alt text](https://github.com/zbrze/Trips-selling-web-app/blob/main/photos/admin.png?raw=true)
 ## Real time database
 Using Cloud Firestore
 
